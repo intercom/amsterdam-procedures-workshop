@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 3: Translate — Fin Procedures Workshop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="stage--technical">
+  <header class="site-header">
+    <span class="logo">Fin Procedures Workshop</span>
+    <span id="stage-indicator" class="stage-indicator"></span>
+    <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
+  </header>
+
+  <div class="container">
+    <h1>Translate to a Fin Procedure</h1>
+    <p class="subtitle">Your SOP is the blueprint. Now let's see how it maps to Fin's Procedure structure.</p>
+
+    <h2>Anatomy of a Fin Procedure</h2>
+    <p>A Procedure in Intercom is made up of:</p>
+
+    <table>
+      <tr><th>Element</th><th>What it is</th><th>Maps to your SOP</th></tr>
+      <tr><td><strong>Trigger</strong></td><td>The customer intent that starts the Procedure</td><td>The customer message that kicks off the process</td></tr>
+      <tr><td><strong>Steps</strong></td><td>Actions Fin takes — each step calls a Data Connector or performs logic</td><td>Each piece of data you need to gather</td></tr>
+      <tr><td><strong>Conditions</strong></td><td>If/else branches based on data returned</td><td>Your decision points</td></tr>
+      <tr><td><strong>Outcomes</strong></td><td>What Fin says or does at the end of each branch</td><td>Your outcomes and agent actions</td></tr>
+    </table>
+
+    <h2>The refund use case mapped</h2>
+    <p>Here's how today's Refund Request SOP translates directly into a Procedure:</p>
+
+    <ol class="steps">
+      <li>
+        <div class="step-body">
+          <p><strong>Trigger:</strong> Customer sends a refund-related message</p>
+          <p>Fin recognises this intent and starts the Procedure automatically.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <p><strong>Step 1 — Customer lookup:</strong> Fin calls the Customer Lookup connector</p>
+          <p>Input: customer's email. Returns: <code>customer_id</code>, name.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <p><strong>Step 2 — Order lookup:</strong> Fin calls the Order Lookup connector</p>
+          <p>Input: <code>customer_id</code>. Returns: list of recent orders.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <p><strong>Step 3 — Refund eligibility:</strong> Fin calls the Eligibility connector</p>
+          <p>Input: <code>order_id</code>. Returns: <code>eligible: true/false</code> and a reason.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <p><strong>Condition:</strong> Is <code>eligible</code> true?</p>
+          <p><strong>If yes →</strong> Step 4 (process refund). <strong>If no →</strong> explain policy and offer escalation.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <p><strong>Step 4 — Process refund:</strong> Fin calls the Process Refund connector</p>
+          <p>Input: <code>order_id</code>. Returns: <code>confirmation_id</code>. Fin confirms to the customer.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout callout--tip">
+      <strong>Data flows forward</strong>
+      Notice how each step passes data to the next. The output of Customer Lookup (<code>customer_id</code>) becomes the input for Order Lookup. This chaining is what makes Procedures powerful.
+    </div>
+
+    <div class="callout callout--check">
+      <strong>Checkpoint</strong>
+      Can you see where your own SOP maps to these elements? In Stage 8 you'll apply this same pattern to your own use case.
+    </div>
+
+    <nav class="stage-nav" id="stage-nav"></nav>
+  </div>
+
+  <script src="nav.js"></script>
+  <script>
+    renderNav('stage-nav');
+    renderProgress('progress-fill');
+    renderStageIndicator('stage-indicator');
+  </script>
+</body>
+</html>
