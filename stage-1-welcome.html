@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 1: Welcome — Fin Procedures Workshop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="stage--technical">
+  <header class="site-header">
+    <span class="logo">Fin Procedures Workshop</span>
+    <span id="stage-indicator" class="stage-indicator"></span>
+    <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
+  </header>
+
+  <div class="container">
+    <h1>Welcome</h1>
+    <p class="subtitle">What is a Fin Procedure, and what are we building today?</p>
+
+    <h2>What is a Fin Procedure?</h2>
+    <p>A <strong>Fin Procedure</strong> is a structured, multi-step workflow that Fin follows to resolve a specific type of customer request. Unlike Guidance — which tells Fin <em>what to say</em> — a Procedure tells Fin <em>what to do</em>: gather data, make decisions, take actions.</p>
+
+    <p>Procedures are the right tool when:</p>
+    <ul style="margin: 0 0 16px 20px;">
+      <li>Fin needs to look up real-time data to answer the customer</li>
+      <li>There are conditional decision points (if eligible → do X, else → do Y)</li>
+      <li>Fin needs to take an action on the customer's behalf</li>
+    </ul>
+
+    <div class="callout callout--tip">
+      <strong>Think of it this way</strong>
+      A Guidance note is a brief for Fin. A Procedure is a runbook. Both matter — but they solve different problems.
+    </div>
+
+    <h2>What we're building today</h2>
+    <p>We'll build a <strong>Refund Request Procedure</strong> from scratch. A customer messages in asking for a refund. Fin will:</p>
+
+    <ol style="margin: 0 0 16px 24px; line-height: 2;">
+      <li>Look up the customer's account</li>
+      <li>Retrieve their recent orders</li>
+      <li>Check refund eligibility for the relevant order</li>
+      <li>Either process the refund or explain why it can't be done</li>
+    </ol>
+
+    <p>By the end of the day you'll have built this yourself — and have a framework for mapping any of your own SOPs into a Procedure.</p>
+
+    <h2>What you'll need</h2>
+    <table>
+      <tr><th>What</th><th>Details</th></tr>
+      <tr><td>Shared Intercom workspace</td><td>Login details provided by your facilitator</td></tr>
+      <tr><td>This guide</td><td>Open on your laptop — follow along stage by stage</td></tr>
+      <tr><td>Pen and paper</td><td>For the Stage 2 exercise</td></tr>
+    </table>
+
+    <div class="callout callout--check">
+      <strong>Checkpoint</strong>
+      Before moving on: make sure you can log in to the shared Intercom workspace. Your facilitator will share the credentials now.
+    </div>
+
+    <nav class="stage-nav" id="stage-nav"></nav>
+  </div>
+
+  <script src="nav.js"></script>
+  <script>
+    renderNav('stage-nav');
+    renderProgress('progress-fill');
+    renderStageIndicator('stage-indicator');
+  </script>
+</body>
+</html>
