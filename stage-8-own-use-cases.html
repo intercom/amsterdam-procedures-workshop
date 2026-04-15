@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 8: Your Own Use Cases — Fin Procedures Workshop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="stage--open">
+  <header class="site-header">
+    <span class="logo">Fin Procedures Workshop</span>
+    <span id="stage-indicator" class="stage-indicator"></span>
+    <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
+  </header>
+
+  <div class="container">
+    <h1>Your Own Use Cases</h1>
+    <p class="subtitle">You've built the refund Procedure. Now apply the same process to a real workflow from your own business.</p>
+
+    <div class="callout callout--tip">
+      <strong>Switch workspaces</strong>
+      For this stage, log in to your own Intercom workspace. Your facilitator will help if you need access.
+    </div>
+
+    <h2>The process you've learned</h2>
+    <p>Every Procedure you build will follow the same pattern:</p>
+    <ol style="margin: 0 0 24px 24px; line-height: 2.2;">
+      <li>Map your SOP on paper (trigger, data, decisions, outcomes)</li>
+      <li>Identify the data connectors you need</li>
+      <li>Build the Procedure step by step</li>
+      <li>Add conditions for each decision point</li>
+      <li>Simulate all scenarios before going live</li>
+    </ol>
+
+    <h2>Choosing your use case</h2>
+    <p>Pick a process that:</p>
+    <ul style="margin: 0 0 16px 20px;">
+      <li>Your team handles frequently</li>
+      <li>Requires looking up data from an external system</li>
+      <li>Has a clear trigger and defined outcomes</li>
+      <li>Doesn't require complex human judgement</li>
+    </ul>
+
+    <p>Good candidates from common support workflows:</p>
+    <table>
+      <tr><th>Use case</th><th>Likely connectors</th><th>Complexity</th></tr>
+      <tr><td>Order status (WISMO)</td><td>Customer lookup, Order lookup, Shipping status</td><td>Low</td></tr>
+      <tr><td>Subscription cancellation</td><td>Customer lookup, Subscription lookup, Cancel subscription</td><td>Medium</td></tr>
+      <tr><td>Password reset</td><td>Customer lookup, Trigger reset email</td><td>Low</td></tr>
+      <tr><td>Invoice request</td><td>Customer lookup, Billing lookup, Send invoice</td><td>Low</td></tr>
+      <tr><td>Account upgrade/downgrade</td><td>Customer lookup, Plan lookup, Update plan</td><td>Medium</td></tr>
+    </table>
+
+    <h2>Work time</h2>
+    <p>Use the next ~30 minutes to:</p>
+    <ol class="steps">
+      <li><div class="step-body"><p>Go back to your Stage 2 worksheet. Apply the same questions to your chosen use case.</p></div></li>
+      <li><div class="step-body"><p>Identify which data connectors you'd need to build (or check if any already exist in your workspace).</p></div></li>
+      <li><div class="step-body"><p>Start building the Procedure in your own workspace — get as far as you can.</p></div></li>
+    </ol>
+
+    <div class="callout callout--tip">
+      <strong>You don't need to finish today</strong>
+      The goal is to start the process and get unstuck at the point where most people stop: mapping the SOP. Even a partial Procedure with placeholder connectors is valuable progress.
+    </div>
+
+    <div class="callout callout--check">
+      <strong>Wrapping up</strong>
+      We'll come back together to share what everyone built and discuss next steps. Your facilitator will let you know when to pause.
+    </div>
+
+    <nav class="stage-nav" id="stage-nav"></nav>
+  </div>
+
+  <script src="nav.js"></script>
+  <script>
+    renderNav('stage-nav');
+    renderProgress('progress-fill');
+    renderStageIndicator('stage-indicator');
+  </script>
+</body>
+</html>
