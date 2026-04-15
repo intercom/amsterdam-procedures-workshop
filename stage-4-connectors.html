@@ -13,7 +13,10 @@
     <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
   </header>
 
-  <div class="container">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main-content">
+      <div class="container">
     <h1>Data Connectors</h1>
     <p class="subtitle">Four connectors are already set up in your shared workspace. Let's explore what each one does before we use them.</p>
 
@@ -99,10 +102,13 @@
     </div>
 
     <nav class="stage-nav" id="stage-nav"></nav>
+      </div>
+    </main>
   </div>
 
   <script src="nav.js"></script>
   <script>
+    renderSidebar('sidebar');
     renderNav('stage-nav');
     renderProgress('progress-fill');
     renderStageIndicator('stage-indicator');

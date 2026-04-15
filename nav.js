@@ -50,3 +50,41 @@ function renderStageIndicator(elemId) {
   if (!el) return;
   el.textContent = `Stage ${idx} of ${STAGES.length - 1}`;
 }
+
+function renderSidebar(containerId) {
+  const idx = currentIndex();
+  const sidebar = document.getElementById(containerId);
+  if (!sidebar) return;
+
+  const collapsed = localStorage.getItem('sidebar-collapsed') === 'true';
+  if (collapsed) sidebar.classList.add('sidebar--collapsed');
+
+  const items = STAGES.map((s, i) => {
+    const num = i === 0 ? '◆' : i;
+    const active = i === idx ? ' active' : '';
+    return `<a href="${s.file}" class="sidebar-item${active}" title="${s.title}">
+      <span class="sidebar-num">${num}</span>
+      <span class="sidebar-label">${s.title}</span>
+    </a>`;
+  }).join('');
+
+  sidebar.innerHTML = `
+    <div class="sidebar-header">
+      <span class="sidebar-header-text">Stages</span>
+    </div>
+    <nav class="sidebar-nav">${items}</nav>
+    <button class="sidebar-toggle" onclick="toggleSidebar()" title="Collapse sidebar">
+      <span class="sidebar-toggle-icon">${collapsed ? '›' : '‹'}</span>
+    </button>
+  `;
+}
+
+function toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+  const willCollapse = !sidebar.classList.contains('sidebar--collapsed');
+  sidebar.classList.toggle('sidebar--collapsed', willCollapse);
+  localStorage.setItem('sidebar-collapsed', willCollapse);
+  const icon = sidebar.querySelector('.sidebar-toggle-icon');
+  if (icon) icon.textContent = willCollapse ? '›' : '‹';
+}

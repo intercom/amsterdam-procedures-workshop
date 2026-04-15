@@ -12,7 +12,10 @@
     <span class="stage-indicator">Amsterdam 2026</span>
   </header>
 
-  <div class="container">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main-content">
+      <div class="container">
     <h1>Fin Procedures Workshop</h1>
     <p class="subtitle">A hands-on guide to building your first Fin Procedure — from standard operating procedure to live simulation.</p>
 
@@ -95,6 +98,11 @@
         <span class="toc-badge badge--open">Own workspace · ~30 min</span>
       </a></li>
     </ul>
+      </div>
+    </main>
   </div>
+
+  <script src="nav.js"></script>
+  <script>renderSidebar('sidebar');</script>
 </body>
 </html>

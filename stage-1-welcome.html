@@ -13,7 +13,10 @@
     <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
   </header>
 
-  <div class="container">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main-content">
+      <div class="container">
     <h1>Welcome</h1>
     <p class="subtitle">What is a Fin Procedure, and what are we building today?</p>
 
@@ -58,10 +61,13 @@
     </div>
 
     <nav class="stage-nav" id="stage-nav"></nav>
+      </div>
+    </main>
   </div>
 
   <script src="nav.js"></script>
   <script>
+    renderSidebar('sidebar');
     renderNav('stage-nav');
     renderProgress('progress-fill');
     renderStageIndicator('stage-indicator');

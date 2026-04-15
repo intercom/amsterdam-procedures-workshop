@@ -13,7 +13,10 @@
     <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
   </header>
 
-  <div class="container">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main-content">
+      <div class="container">
     <div class="callout callout--tip">
       <strong>Optional stage</strong>
       This stage is a bonus — only proceed here if your group has completed Stages 1–6 and has time remaining. Your facilitator will let you know.
@@ -57,10 +60,13 @@
     </div>
 
     <nav class="stage-nav" id="stage-nav"></nav>
+      </div>
+    </main>
   </div>
 
   <script src="nav.js"></script>
   <script>
+    renderSidebar('sidebar');
     renderNav('stage-nav');
     renderProgress('progress-fill');
     renderStageIndicator('stage-indicator');
