@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 5: Build the Procedure — Fin Procedures Workshop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="stage--technical">
+  <header class="site-header">
+    <span class="logo">Fin Procedures Workshop</span>
+    <span id="stage-indicator" class="stage-indicator"></span>
+    <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
+  </header>
+
+  <div class="container">
+    <h1>Build the Procedure</h1>
+    <p class="subtitle">Time to build. Follow each step carefully — by the end you'll have a working Refund Request Procedure.</p>
+
+    <div class="callout callout--tip">
+      <strong>Work in your shared workspace</strong>
+      Make sure you're logged in to the shared Intercom workspace. You'll each be building your own copy of the Procedure.
+    </div>
+
+    <h2>Part 1: Create the Procedure</h2>
+    <ol class="steps">
+      <li><div class="step-body">
+        <p>Navigate to <strong>AI &amp; Automation → Fin AI Agent → Procedures</strong>.</p>
+      </div></li>
+      <li><div class="step-body">
+        <p>Click <strong>New Procedure</strong>.</p>
+      </div></li>
+      <li><div class="step-body">
+        <p>Give it a name: <strong>Refund Request</strong>.</p>
+      </div></li>
+      <li><div class="step-body">
+        <p>In the <strong>Trigger</strong> field, describe when Fin should run this Procedure:</p>
+        <p><em>"When a customer asks for a refund or wants to return an item."</em></p>
+      </div></li>
+    </ol>
+
+    <h2>Part 2: Add the Data Connector steps</h2>
+    <ol class="steps">
+      <li><div class="step-body">
+        <p>Click <strong>Add step → Call a Data Connector</strong>.</p>
+        <p>Select <strong>Customer Lookup</strong>. Map the input: set <code>email</code> to the customer's conversation email.</p>
+      </div></li>
+      <li><div class="step-body">
+        <p>Add a second step: <strong>Call a Data Connector → Order Lookup</strong>.</p>
+        <p>Map the input: set <code>customer_id</code> to the output of the previous step (<code>customer_id</code>).</p>
+      </div></li>
+      <li><div class="step-body">
+        <p>Add a third step: <strong>Call a Data Connector → Refund Eligibility</strong>.</p>
+        <p>Map the input: set <code>order_id</code> to the most recent order from the Order Lookup results.</p>
+        <div class="callout callout--tip">
+          <strong>Tip</strong>
+          If the customer has multiple orders, Fin will use the most recent one by default. You can add a clarifying question step before this if you want the customer to confirm which order.
+        </div>
+      </div></li>
+    </ol>
+
+    <h2>Part 3: Add the eligibility condition</h2>
+    <ol class="steps">
+      <li><div class="step-body">
+        <p>After the Refund Eligibility step, click <strong>Add step → Add condition</strong>.</p>
+      </div></li>
+      <li><div class="step-body">
+        <p>Set the condition: <strong>If <code>eligible</code> is <code>true</code></strong>.</p>
+      </div></li>
+      <li><div class="step-body">
+        <p>In the <strong>Yes</strong> branch: add a step → <strong>Call a Data Connector → Process Refund</strong>. Map <code>order_id</code> from the Order Lookup output.</p>
+      </div></li>
+      <li><div class="step-body">
+        <p>After the Process Refund step, add a <strong>Send message</strong> step:</p>
+        <p><em>"I've processed your refund for {{order_id}}. Your confirmation number is {{confirmation_id}}. You should see the refund within 3–5 business days."</em></p>
+      </div></li>
+      <li><div class="step-body">
+        <p>In the <strong>No</strong> branch: add a <strong>Send message</strong> step:</p>
+        <p><em>"Unfortunately, your order isn't eligible for a refund. {{reason}}. If you think this is a mistake, I can connect you with our support team."</em></p>
+      </div></li>
+    </ol>
+
+    <h2>Part 4: Publish</h2>
+    <ol class="steps">
+      <li><div class="step-body"><p>Review the full Procedure flow — make sure all steps are connected and inputs are mapped.</p></div></li>
+      <li><div class="step-body"><p>Click <strong>Save</strong>, then <strong>Enable Procedure</strong>.</p></div></li>
+    </ol>
+
+    <div class="callout callout--check">
+      <strong>Checkpoint</strong>
+      Your Procedure is now live in the shared workspace. Before moving to simulation, check that all four steps appear in the flow and the condition has both a Yes and No branch.
+    </div>
+
+    <nav class="stage-nav" id="stage-nav"></nav>
+  </div>
+
+  <script src="nav.js"></script>
+  <script>
+    renderNav('stage-nav');
+    renderProgress('progress-fill');
+    renderStageIndicator('stage-indicator');
+  </script>
+</body>
+</html>
