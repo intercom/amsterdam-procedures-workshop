@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 4: Data Connectors — Fin Procedures Workshop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="stage--technical">
+  <header class="site-header">
+    <span class="logo">Fin Procedures Workshop</span>
+    <span id="stage-indicator" class="stage-indicator"></span>
+    <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
+  </header>
+
+  <div class="container">
+    <h1>Data Connectors</h1>
+    <p class="subtitle">Four connectors are already set up in your shared workspace. Let's explore what each one does before we use them.</p>
+
+    <div class="callout callout--tip">
+      <strong>What is a Data Connector?</strong>
+      A Data Connector is how Fin calls an external system during a Procedure. It defines the API endpoint to call, what data to send, and what data to extract from the response. Think of it as a pre-wired integration step.
+    </div>
+
+    <h2>Finding the connectors in your workspace</h2>
+    <ol class="steps">
+      <li><div class="step-body"><p>In your shared Intercom workspace, go to <strong>AI &amp; Automation → Fin AI Agent → Procedures</strong>.</p></div></li>
+      <li><div class="step-body"><p>Click <strong>Data Connectors</strong> in the left navigation.</p></div></li>
+      <li><div class="step-body"><p>You should see four connectors listed. Open each one to familiarise yourself with its configuration.</p></div></li>
+    </ol>
+
+    <h2>The four connectors</h2>
+
+    <h3>1. Customer Lookup</h3>
+    <p>Retrieves a customer record using their email address.</p>
+    <table>
+      <tr><th>Field</th><th>Value</th></tr>
+      <tr><td>Method</td><td><code>GET</code></td></tr>
+      <tr><td>Input</td><td><code>email</code> (from conversation context)</td></tr>
+      <tr><td>Returns</td><td><code>customer_id</code>, <code>name</code>, <code>email</code></td></tr>
+    </table>
+    <p>Example response:</p>
+    <pre><code>{
+  "customer_id": "cust_8821",
+  "name": "Alex Johnson",
+  "email": "alex@example.com"
+}</code></pre>
+
+    <h3>2. Order Lookup</h3>
+    <p>Retrieves the customer's recent orders.</p>
+    <table>
+      <tr><th>Field</th><th>Value</th></tr>
+      <tr><td>Method</td><td><code>GET</code></td></tr>
+      <tr><td>Input</td><td><code>customer_id</code> (from Customer Lookup)</td></tr>
+      <tr><td>Returns</td><td>Array of orders: <code>order_id</code>, <code>item</code>, <code>amount</code>, <code>date</code></td></tr>
+    </table>
+    <p>Example response:</p>
+    <pre><code>{
+  "orders": [
+    { "order_id": "ord_441", "item": "Blue Jacket", "amount": 89.99, "date": "2026-03-28" },
+    { "order_id": "ord_398", "item": "Grey Hoodie", "amount": 54.00, "date": "2026-02-14" }
+  ]
+}</code></pre>
+
+    <h3>3. Refund Eligibility</h3>
+    <p>Checks whether a specific order is eligible for a refund.</p>
+    <table>
+      <tr><th>Field</th><th>Value</th></tr>
+      <tr><td>Method</td><td><code>GET</code></td></tr>
+      <tr><td>Input</td><td><code>order_id</code> (selected from Order Lookup)</td></tr>
+      <tr><td>Returns</td><td><code>eligible</code> (boolean), <code>reason</code></td></tr>
+    </table>
+    <p>Example responses:</p>
+    <pre><code>// Eligible
+{ "eligible": true, "reason": "Within 30-day return window" }
+
+// Not eligible
+{ "eligible": false, "reason": "Outside 30-day return window" }</code></pre>
+
+    <h3>4. Process Refund</h3>
+    <p>Submits the refund and returns a confirmation.</p>
+    <table>
+      <tr><th>Field</th><th>Value</th></tr>
+      <tr><td>Method</td><td><code>POST</code></td></tr>
+      <tr><td>Input</td><td><code>order_id</code></td></tr>
+      <tr><td>Returns</td><td><code>success</code> (boolean), <code>confirmation_id</code></td></tr>
+    </table>
+    <p>Example response:</p>
+    <pre><code>{ "success": true, "confirmation_id": "ref_7742" }</code></pre>
+
+    <div class="callout callout--warn">
+      <strong>Mock endpoints</strong>
+      These connectors call mock API endpoints — no real transactions take place. They're pre-configured to return realistic sample data so you can focus on building the Procedure, not on API setup.
+    </div>
+
+    <div class="callout callout--check">
+      <strong>Checkpoint</strong>
+      Before moving on: open all four connectors in your workspace and confirm they're listed. You don't need to edit anything — just get familiar with the structure.
+    </div>
+
+    <nav class="stage-nav" id="stage-nav"></nav>
+  </div>
+
+  <script src="nav.js"></script>
+  <script>
+    renderNav('stage-nav');
+    renderProgress('progress-fill');
+    renderStageIndicator('stage-indicator');
+  </script>
+</body>
+</html>
