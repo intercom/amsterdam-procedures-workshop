@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 7: Internal Agent — Fin Procedures Workshop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="stage--technical">
+  <header class="site-header">
+    <span class="logo">Fin Procedures Workshop</span>
+    <span id="stage-indicator" class="stage-indicator"></span>
+    <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
+  </header>
+
+  <div class="container">
+    <div class="callout callout--tip">
+      <strong>Optional stage</strong>
+      This stage is a bonus — only proceed here if your group has completed Stages 1–6 and has time remaining. Your facilitator will let you know.
+    </div>
+
+    <h1>Advanced: Internal Agent</h1>
+    <p class="subtitle">How do Procedures change when Fin is working as an internal agent — helping your support team rather than your customers?</p>
+
+    <h2>What is Internal Agent?</h2>
+    <p>Internal Agent is Fin working inside your team's inbox, assisting human agents rather than talking directly to customers. Instead of resolving conversations autonomously, Fin surfaces relevant information, suggests responses, and executes actions on behalf of the agent.</p>
+
+    <h2>How Procedures work with Internal Agent</h2>
+    <p>The same Procedure you built today can be repurposed for Internal Agent with a few adjustments:</p>
+
+    <table>
+      <tr><th></th><th>Customer-facing Procedure</th><th>Internal Agent Procedure</th></tr>
+      <tr><td><strong>Trigger</strong></td><td>Customer sends a message</td><td>Agent opens a conversation or requests a lookup</td></tr>
+      <tr><td><strong>Data connectors</strong></td><td>Same connectors, same data</td><td>Same connectors, same data</td></tr>
+      <tr><td><strong>Output</strong></td><td>Fin replies directly to customer</td><td>Fin surfaces data and a suggested response to the agent</td></tr>
+      <tr><td><strong>Actions</strong></td><td>Fin processes refund autonomously</td><td>Agent reviews and approves before action is taken</td></tr>
+    </table>
+
+    <h2>When to use Internal Agent vs. autonomous Procedures</h2>
+    <p>Use <strong>autonomous Procedures</strong> when:</p>
+    <ul style="margin: 0 0 16px 20px;">
+      <li>The process is well-defined and low-risk</li>
+      <li>The outcome is reversible or confirmable</li>
+      <li>Volume is high enough to justify full automation</li>
+    </ul>
+
+    <p>Use <strong>Internal Agent</strong> when:</p>
+    <ul style="margin: 0 0 16px 20px;">
+      <li>Human judgement is still needed before taking action</li>
+      <li>The process handles sensitive or high-value cases</li>
+      <li>You want to build team confidence before going fully autonomous</li>
+    </ul>
+
+    <div class="callout callout--tip">
+      <strong>A useful starting point</strong>
+      Many teams start with Internal Agent — Fin assists agents on refunds — before moving to fully autonomous Procedures once they're confident in the data and outcomes. It's a lower-risk way to get value from your Procedures earlier.
+    </div>
+
+    <nav class="stage-nav" id="stage-nav"></nav>
+  </div>
+
+  <script src="nav.js"></script>
+  <script>
+    renderNav('stage-nav');
+    renderProgress('progress-fill');
+    renderStageIndicator('stage-indicator');
+  </script>
+</body>
+</html>
