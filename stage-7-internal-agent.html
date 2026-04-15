@@ -17,46 +17,51 @@
     <aside class="sidebar" id="sidebar"></aside>
     <main class="main-content">
       <div class="container">
-    <div class="callout callout--tip">
+    <div class="callout callout--warn">
       <strong>Optional stage</strong>
       This stage is a bonus — only proceed here if your group has completed Stages 1–6 and has time remaining. Your facilitator will let you know.
     </div>
 
     <h1>Advanced: Internal Agent</h1>
-    <p class="subtitle">How do Procedures change when Fin is working as an internal agent — helping your support team rather than your customers?</p>
+    <p class="subtitle">A conversational layer on top of Fin — talk to your data, manage your config, and build Procedures in natural language.</p>
 
-    <h2>What is Internal Agent?</h2>
-    <p>Internal Agent is Fin working inside your team's inbox, assisting human agents rather than talking directly to customers. Instead of resolving conversations autonomously, Fin surfaces relevant information, suggests responses, and executes actions on behalf of the agent.</p>
+    <p>Internal Agent is a new way to work with Fin. Instead of navigating settings and dashboards, you can ask questions and give instructions in plain language. It's currently in closed beta, with Procedures support in active development.</p>
 
-    <h2>How Procedures work with Internal Agent</h2>
-    <p>The same Procedure you built today can be repurposed for Internal Agent with a few adjustments:</p>
-
-    <table>
-      <tr><th></th><th>Customer-facing Procedure</th><th>Internal Agent Procedure</th></tr>
-      <tr><td><strong>Trigger</strong></td><td>Customer sends a message</td><td>Agent opens a conversation or requests a lookup</td></tr>
-      <tr><td><strong>Data connectors</strong></td><td>Same connectors, same data</td><td>Same connectors, same data</td></tr>
-      <tr><td><strong>Output</strong></td><td>Fin replies directly to customer</td><td>Fin surfaces data and a suggested response to the agent</td></tr>
-      <tr><td><strong>Actions</strong></td><td>Fin processes refund autonomously</td><td>Agent reviews and approves before action is taken</td></tr>
-    </table>
-
-    <h2>When to use Internal Agent vs. autonomous Procedures</h2>
-    <p>Use <strong>autonomous Procedures</strong> when:</p>
-    <ul style="margin: 0 0 16px 20px;">
-      <li>The process is well-defined and low-risk</li>
-      <li>The outcome is reversible or confirmable</li>
-      <li>Volume is high enough to justify full automation</li>
+    <h2>Talk to your data</h2>
+    <p>Ask questions about Fin's performance in natural language and get answers with simple visualisations — no need to pull a report.</p>
+    <ul style="margin: 0 0 16px 20px; line-height: 2;">
+      <li>Explore metrics across time, intent, and segment — <em>"Why was resolution rate higher than usual yesterday?"</em></li>
+      <li>Drill into the conversations behind the numbers</li>
+      <li>Identify patterns driving resolution or escalation</li>
+      <li>Get actionable insight on how to improve Fin's configuration</li>
     </ul>
 
-    <p>Use <strong>Internal Agent</strong> when:</p>
-    <ul style="margin: 0 0 16px 20px;">
-      <li>Human judgement is still needed before taking action</li>
-      <li>The process handles sensitive or high-value cases</li>
-      <li>You want to build team confidence before going fully autonomous</li>
+    <h2>Manage content</h2>
+    <p>Audit and update Fin's configuration by asking questions rather than navigating multiple settings screens.</p>
+    <ul style="margin: 0 0 16px 20px; line-height: 2;">
+      <li>Audit your config — <em>"What snippets are related to Billing?"</em></li>
+      <li>Make targeted or sweeping updates — <em>"We're deprecating this feature. The details are in this doc."</em></li>
+      <li>Understand how your configuration shapes Fin's behaviour — <em>"Why did Fin respond like this?"</em></li>
+    </ul>
+
+    <h2>Debug conversations</h2>
+    <p>Go beyond what the conversation log shows and understand the reasoning behind Fin's responses.</p>
+    <ul style="margin: 0 0 16px 20px; line-height: 2;">
+      <li>Deep dive into conversations to understand the <em>why</em> behind Fin's responses</li>
+      <li>Get suggested changes to improve or optimise Fin's performance</li>
+    </ul>
+
+    <h2>Procedures <span style="font-size: 0.75rem; font-weight: 600; background: rgba(224,120,50,0.12); color: #c45e0a; border: 1px solid rgba(224,120,50,0.2); padding: 2px 8px; border-radius: 20px; vertical-align: middle; margin-left: 6px;">In build</span></h2>
+    <p>The capability most relevant to today — and the one coming next. Internal Agent will let you build and refine Procedures without going step-by-step through the UI.</p>
+    <ul style="margin: 0 0 16px 20px; line-height: 2;">
+      <li>Build out Procedures with natural language</li>
+      <li>Optimise and improve existing Procedures via conversation</li>
+      <li>Create and run simulations to test before publishing</li>
     </ul>
 
     <div class="callout callout--tip">
-      <strong>A useful starting point</strong>
-      Many teams start with Internal Agent — Fin assists agents on refunds — before moving to fully autonomous Procedures once they're confident in the data and outcomes. It's a lower-risk way to get value from your Procedures earlier.
+      <strong>Where this is heading</strong>
+      The Procedure you built manually today — defining steps, wiring connectors, configuring branches — will eventually be something you can describe conversationally and have Internal Agent scaffold for you. The manual approach gives you the mental model; Internal Agent will make it faster.
     </div>
 
     <nav class="stage-nav" id="stage-nav"></nav>
