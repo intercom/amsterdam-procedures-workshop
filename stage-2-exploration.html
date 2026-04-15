@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 2: Exploration — Fin Procedures Workshop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="stage--explore">
+  <header class="site-header">
+    <span class="logo">Fin Procedures Workshop</span>
+    <span id="stage-indicator" class="stage-indicator"></span>
+    <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
+  </header>
+
+  <div class="container">
+    <h1>Map Your Standard Operating Procedure</h1>
+    <p class="subtitle">Before we open Intercom, let's get your process on paper. This is the most important stage — everything else follows from it.</p>
+
+    <div class="callout callout--warn">
+      <strong>Step away from the screen</strong>
+      This exercise works best on paper. Use the printed worksheet your facilitator has provided, or work through the questions below. Take ~20 minutes with your team.
+    </div>
+
+    <h2>Why this matters</h2>
+    <p>Most Procedure failures aren't technical — they're caused by poorly defined processes. Before you can automate a workflow, you need to understand it clearly: what triggers it, what data is needed, what decisions are made, and what the outcomes are.</p>
+
+    <p>Use the refund process you deal with today as your starting point. Think about a real conversation your team handles regularly.</p>
+
+    <div class="worksheet">
+      <h3>SOP Mapping Worksheet</h3>
+
+      <div class="worksheet-field">
+        <label>1. What customer message triggers this process?</label>
+        <div class="hint">e.g. "I'd like a refund on my order", "Can I return this?"</div>
+        <textarea placeholder="Write the typical message a customer sends..."></textarea>
+      </div>
+
+      <div class="worksheet-field">
+        <label>2. What information does your agent need to gather?</label>
+        <div class="hint">List each piece of data needed — order number, purchase date, reason, etc.</div>
+        <textarea placeholder="1. &#10;2. &#10;3. "></textarea>
+      </div>
+
+      <div class="worksheet-field">
+        <label>3. What decisions need to be made?</label>
+        <div class="hint">What determines whether you process the refund or not? Are there rules?</div>
+        <textarea placeholder="e.g. Is the order within the 30-day return window? Was the item damaged?"></textarea>
+      </div>
+
+      <div class="worksheet-field">
+        <label>4. What are the possible outcomes?</label>
+        <div class="hint">Walk through each branch — what happens in each case?</div>
+        <textarea placeholder="If eligible: &#10;If not eligible: &#10;If order not found: "></textarea>
+      </div>
+
+      <div class="worksheet-field">
+        <label>5. What action does the agent take in each case?</label>
+        <div class="hint">What does the agent actually do — not just say? Process refund? Escalate? Send a link?</div>
+        <textarea placeholder="In each outcome, what system action is taken?"></textarea>
+      </div>
+    </div>
+
+    <h2>Now compare with today's use case</h2>
+    <p>We'll build a Refund Request Procedure together. Here's how the shared use case answers these same questions:</p>
+
+    <table>
+      <tr><th>Question</th><th>Today's use case</th></tr>
+      <tr><td>Trigger</td><td>"I'd like a refund on my order"</td></tr>
+      <tr><td>Data needed</td><td>Customer email → Customer ID → Orders → Order eligibility</td></tr>
+      <tr><td>Decision</td><td>Is the order eligible for a refund?</td></tr>
+      <tr><td>Outcome A</td><td>Eligible → process refund, confirm to customer</td></tr>
+      <tr><td>Outcome B</td><td>Not eligible → explain policy, offer escalation</td></tr>
+      <tr><td>Outcome C</td><td>Order not found → ask customer to verify details</td></tr>
+    </table>
+
+    <div class="callout callout--check">
+      <strong>Checkpoint</strong>
+      Before moving on: you should have your SOP written out — even roughly. Keep it nearby. You'll refer back to it in Stage 3.
+    </div>
+
+    <nav class="stage-nav" id="stage-nav"></nav>
+  </div>
+
+  <script src="nav.js"></script>
+  <script>
+    renderNav('stage-nav');
+    renderProgress('progress-fill');
+    renderStageIndicator('stage-indicator');
+  </script>
+</body>
+</html>
