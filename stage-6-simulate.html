@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 6: Simulate — Fin Procedures Workshop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="stage--technical">
+  <header class="site-header">
+    <span class="logo">Fin Procedures Workshop</span>
+    <span id="stage-indicator" class="stage-indicator"></span>
+    <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
+  </header>
+
+  <div class="container">
+    <h1>Simulate &amp; Stress Test</h1>
+    <p class="subtitle">A Procedure isn't ready until it's been tested. Run these three scenarios to make sure yours handles every case correctly.</p>
+
+    <div class="callout callout--tip">
+      <strong>How to run a simulation</strong>
+      In your Intercom workspace, open your Refund Request Procedure and click <strong>Simulate</strong>. You can provide a test customer and message, then watch Fin work through the steps.
+    </div>
+
+    <h2>Scenario 1: Happy Path — Eligible Refund</h2>
+    <p>The most common case: customer has an order within the return window.</p>
+
+    <table>
+      <tr><th>Input</th><th>Value</th></tr>
+      <tr><td>Customer message</td><td>"Hi, I'd like to return my recent order and get a refund."</td></tr>
+      <tr><td>Expected connector calls</td><td>Customer Lookup → Order Lookup → Refund Eligibility → Process Refund</td></tr>
+      <tr><td>Expected eligibility response</td><td><code>eligible: true</code></td></tr>
+      <tr><td>Expected Fin response</td><td>Refund confirmed with confirmation number</td></tr>
+    </table>
+
+    <div class="callout callout--check">
+      <strong>Pass criteria</strong>
+      Fin calls all four connectors in order, processes the refund, and provides a confirmation number.
+    </div>
+
+    <h2>Scenario 2: Ineligible Order</h2>
+    <p>Customer's order is outside the return window — Fin should explain and offer escalation.</p>
+
+    <table>
+      <tr><th>Input</th><th>Value</th></tr>
+      <tr><td>Customer message</td><td>"I bought something a couple of months ago — can I still get a refund?"</td></tr>
+      <tr><td>Expected connector calls</td><td>Customer Lookup → Order Lookup → Refund Eligibility (no Process Refund)</td></tr>
+      <tr><td>Expected eligibility response</td><td><code>eligible: false</code>, reason returned</td></tr>
+      <tr><td>Expected Fin response</td><td>Explains ineligibility, offers to escalate to support team</td></tr>
+    </table>
+
+    <div class="callout callout--check">
+      <strong>Pass criteria</strong>
+      Fin takes the No branch, does NOT call Process Refund, and communicates the reason clearly.
+    </div>
+
+    <h2>Scenario 3: Order Not Found</h2>
+    <p>Edge case — the customer's email returns no orders, or a wrong order ID is returned.</p>
+
+    <table>
+      <tr><th>Input</th><th>Value</th></tr>
+      <tr><td>Customer message</td><td>"I want a refund but I can't find my order number."</td></tr>
+      <tr><td>Expected behaviour</td><td>Fin asks customer to verify their email or provide order number</td></tr>
+      <tr><td>Expected Fin response</td><td>Asks for clarifying information, does not proceed to eligibility check</td></tr>
+    </table>
+
+    <div class="callout callout--warn">
+      <strong>If this scenario fails</strong>
+      Go back to your Procedure and add a condition after Order Lookup: <em>If orders list is empty → ask customer to confirm their email address or order number.</em>
+    </div>
+
+    <div class="callout callout--check">
+      <strong>Checkpoint</strong>
+      All three scenarios should pass before moving on. If any fail, revisit the relevant step in Stage 5 and adjust. Simulation is where you find the gaps — this is the process working as intended.
+    </div>
+
+    <nav class="stage-nav" id="stage-nav"></nav>
+  </div>
+
+  <script src="nav.js"></script>
+  <script>
+    renderNav('stage-nav');
+    renderProgress('progress-fill');
+    renderStageIndicator('stage-indicator');
+  </script>
+</body>
+</html>
