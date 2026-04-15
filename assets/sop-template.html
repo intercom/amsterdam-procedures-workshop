@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SOP Mapping Worksheet — Fin Procedures Workshop</title>
+  <style>
+    @media print {
+      body { margin: 0; }
+      .no-print { display: none; }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      max-width: 720px;
+      margin: 32px auto;
+      padding: 0 24px;
+      color: #1a1a1a;
+    }
+
+    h1 { font-size: 1.4rem; margin-bottom: 4px; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
+
+    .field { margin-bottom: 28px; }
+    .field label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+    .field .hint { font-size: 12px; color: #888; margin-bottom: 6px; }
+
+    .lines { border-bottom: 1px solid #ccc; margin-bottom: 8px; padding-bottom: 24px; }
+    .lines + .lines { margin-top: -8px; }
+
+    .print-btn {
+      display: inline-block;
+      margin-bottom: 24px;
+      padding: 10px 20px;
+      background: #6b30b0;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="no-print">
+    <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <h1>SOP Mapping Worksheet</h1>
+  <p class="subtitle">Fin Procedures Workshop · Amsterdam 2026 · Use one sheet per use case</p>
+
+  <div class="field">
+    <label>Use case name</label>
+    <div class="lines" style="padding-bottom: 8px;"></div>
+  </div>
+
+  <div class="field">
+    <label>1. What customer message triggers this process?</label>
+    <div class="hint">The typical message a customer sends that starts this workflow.</div>
+    <div class="lines"></div>
+    <div class="lines"></div>
+  </div>
+
+  <div class="field">
+    <label>2. What information does your agent need to gather?</label>
+    <div class="hint">List each piece of data — order number, customer ID, account status, etc.</div>
+    <div class="lines"></div>
+    <div class="lines"></div>
+    <div class="lines"></div>
+  </div>
+
+  <div class="field">
+    <label>3. What decisions need to be made?</label>
+    <div class="hint">What determines the outcome? Are there eligibility rules or conditions?</div>
+    <div class="lines"></div>
+    <div class="lines"></div>
+  </div>
+
+  <div class="field">
+    <label>4. What are the possible outcomes?</label>
+    <div class="hint">Walk through each branch.</div>
+    <p style="font-size: 13px; margin: 4px 0 2px; font-weight: 500;">If [condition is met]:</p>
+    <div class="lines"></div>
+    <p style="font-size: 13px; margin: 8px 0 2px; font-weight: 500;">If [condition is not met]:</p>
+    <div class="lines"></div>
+    <p style="font-size: 13px; margin: 8px 0 2px; font-weight: 500;">Edge case (e.g. data not found):</p>
+    <div class="lines"></div>
+  </div>
+
+  <div class="field">
+    <label>5. What action does the agent take in each case?</label>
+    <div class="hint">What system action is taken — not just what is said.</div>
+    <div class="lines"></div>
+    <div class="lines"></div>
+  </div>
+
+  <div class="field">
+    <label>Data connectors needed</label>
+    <div class="hint">List each API/system that needs to be called, and what data it returns.</div>
+    <div class="lines"></div>
+    <div class="lines"></div>
+    <div class="lines"></div>
+  </div>
+</body>
+</html>
