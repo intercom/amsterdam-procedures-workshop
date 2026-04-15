@@ -257,6 +257,7 @@ tr:nth-child(even) td { background: #fafafa; }
 
 body.stage--explore .nav-btn--next { background: #c47d00; }
 body.stage--technical .nav-btn--next { background: var(--technical-accent); }
+/* stage--open intentionally uses default --brand purple for the next button */
 
 .nav-btn--ghost { visibility: hidden; }
 
